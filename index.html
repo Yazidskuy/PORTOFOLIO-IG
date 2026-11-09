@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NAMA KAMU — Vol. 01</title>
+<meta name="description" content="Portofolio, memori, dan koleksi pencapaian.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--k:#000;--w:#fff;--g:#b9b9b9;--kA:#000e;--d:'Anton','Impact',sans-serif;--b:'Space Grotesk','Helvetica Neue',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--k);color:var(--w);font-family:var(--b);line-height:1.5;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--g);outline-offset:3px}
+.grain{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.09;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{padding:0 5vw}
+.meta{font-size:.72rem;letter-spacing:.08em;display:flex;justify-content:space-between;gap:1rem}
+
+/* ---------- KURSOR CUSTOM ---------- */
+body,.ph,.cert-card,button,a{cursor:none!important}
+.cur{position:fixed;left:0;top:0;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:200;transition:width .25s,height .25s,margin .25s;will-change:transform}
+.cur.big{width:84px;height:84px;margin:-42px 0 0 -42px}
+.cur.big::after{content:"LIHAT";color:#000;font-size:.65rem;font-weight:700;display:grid;place-items:center;height:100%;letter-spacing:.1em}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:max(1.2rem,env(safe-area-inset-top)) 5vw 1.5rem;position:relative;overflow:hidden}
+.name{font-family:var(--d);text-transform:uppercase;line-height:.8;font-size:clamp(5.5rem,31vw,24rem);letter-spacing:-.01em;margin:3vh 0 0 -.04em}
+.name .word{display:block;overflow:hidden;padding-top:.04em}
+.name .word:nth-child(2){margin-left:8vw;-webkit-text-stroke:2px var(--w);color:transparent}
+.name .ch{display:inline-block;transform:translateY(105%) rotate(6deg);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*55ms + 250ms)}
+@keyframes up{to{transform:none}}
+.sticker{position:absolute;right:5vw;top:44vh;width:clamp(120px,28vw,260px);aspect-ratio:3/4;transform:rotate(7deg);border:6px solid var(--w);overflow:hidden;filter:grayscale(1) contrast(1.1);z-index:2;box-shadow:8px 8px 0 color-mix(in srgb,var(--w) 20%,transparent)}
+.sticker img{width:100%;height:100%;object-fit:cover}
+.tag{font-size:clamp(1.05rem,3.6vw,1.6rem);max-width:17ch;font-weight:500;line-height:1.2;opacity:0;animation:fade .8s 1.3s forwards}
+.hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
+.scroll{display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.7rem;letter-spacing:.1em;opacity:0;animation:fade .8s 1.7s forwards}
+.scroll i{width:1px;height:46px;background:linear-gradient(var(--w) 50%,transparent 50%) 0 0/1px 12px;animation:drip 1s linear infinite}
+@keyframes drip{to{background-position:0 12px}}
+@keyframes fade{to{opacity:1}}
+
+/* ---------- MARQUEE ---------- */
+.marq{overflow:hidden;white-space:nowrap;border-block:1px solid currentColor;padding:.5rem 0;font-family:var(--d);font-size:clamp(1.6rem,6vw,3rem);text-transform:uppercase;transform:rotate(-1.5deg);margin:2.5rem -2vw;position:relative;z-index:3}
+.marq.inv{background:var(--w);color:var(--k)}
+.marq .t{display:inline-block;animation:run 22s linear infinite}
+.marq.rev .t{animation-direction:reverse}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* ---------- ABOUT ---------- */
+.about{--k:#000;--w:#fff;background:#000;color:#fff;padding:5rem 5vw 6rem;position:relative;overflow:hidden;isolation:isolate}
+.about .abg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:88% 50%;filter:grayscale(1) contrast(1.1);opacity:.6;z-index:-2;transition:filter .6s}
+.about::after{content:"";position:absolute;inset:0;background:#0008;z-index:-1}
+.about mark{background:#fff;color:#000}
+@media (hover:hover){.about:hover .abg{filter:none}}
+.sec-no{font-family:var(--d);font-size:clamp(5rem,26vw,16rem);line-height:.8;position:absolute;right:3vw;top:1rem;opacity:.1;pointer-events:none}
+.about h2,.gal h2,.certs h2{font-family:var(--d);font-weight:400;text-transform:uppercase;font-size:clamp(2.6rem,10vw,6rem);line-height:.9}
+.about p{font-size:clamp(1.2rem,4.4vw,2rem);line-height:1.3;max-width:26ch;margin-top:1.5rem;font-weight:500}
+.about p+p{font-size:1rem;max-width:34ch;margin-top:1rem;font-weight:400;opacity:.7}
+.about .meta{margin-top:3rem}
+mark{background:var(--k);color:var(--w);padding:0 .25em;transform:rotate(-1deg);display:inline-block}
+
+/* ---------- GALERI (RAPI & CLEAN WITHOUT CAPTION) ---------- */
+.gal{padding:5rem 5vw 3rem;position:relative;overflow:hidden}
+.gal h2{color:#fff;position:relative;z-index:4;mix-blend-mode:difference;margin-bottom:-.5rem}
+.gal .sub{max-width:35ch;margin:1rem 0 2.5rem;opacity:.7;font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:1.8rem}
+.ph{position:relative;cursor:pointer;background:#111;border:4px solid var(--w);box-shadow:6px 6px 0 var(--g);transition:transform .3s ease, box-shadow .3s ease;overflow:hidden}
+.ph:hover{transform:translateY(-6px) scale(1.02);box-shadow:10px 10px 0 var(--w);z-index:5}
+.ph .box{width:100%;aspect-ratio:4/3;overflow:hidden;background:#222}
+.ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);transition:filter .4s ease, transform .4s ease}
+.ph:hover img,.ph.on img{filter:none;transform:scale(1.05)}
+
+/* ---------- SERTIFIKAT & PIALA (BOX CONTAINER) ---------- */
+.certs{background:var(--w);color:var(--k);padding:5rem 5vw 6rem;position:relative}
+.certs .sub{max-width:38ch;margin:1rem 0 2.5rem;opacity:.7;font-size:.95rem}
+.cert-box-container{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:2rem;margin-top:1.5rem}
+.cert-card{background:var(--k);color:var(--w);border:3px solid var(--k);padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;box-shadow:8px 8px 0 var(--g);transition:transform .25s ease, box-shadow .25s ease}
+.cert-card:hover{transform:translateY(-5px);box-shadow:12px 12px 0 var(--k)}
+.cert-card .badge{align-self:flex-start;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;background:var(--w);color:var(--k);padding:.25rem .6rem;font-weight:700;margin-bottom:1.2rem}
+.cert-card .cert-img-box{width:100%;aspect-ratio:4/3;overflow:hidden;margin-bottom:1.2rem;background:#222;border:2px solid var(--w)}
+.cert-card .cert-img-box img{width:100%;height:100%;object-fit:cover}
+.cert-card h3{font-family:var(--d);font-size:1.8rem;line-height:1.1;margin-bottom:.5rem;text-transform:uppercase}
+.cert-card p{font-size:.85rem;opacity:.8;margin-bottom:1.5rem;line-height:1.4}
+.cert-card .btn-pdf{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1rem;background:var(--w);color:var(--k);font-size:.8rem;font-weight:700;text-transform:uppercase;text-decoration:none;border:2px solid var(--w);transition:background .2s, color .2s}
+.cert-card .btn-pdf:hover{background:var(--k);color:var(--w)}
+
+/* ---------- FOOTER ---------- */
+.foot{padding:4rem 5vw calc(2rem + env(safe-area-inset-bottom));position:relative;overflow:hidden}
+.foot h2{font-family:var(--d);font-weight:400;text-transform:uppercase;font-size:clamp(3.4rem,17vw,12rem);line-height:.85}
+.foot h2 em{font-style:normal;-webkit-text-stroke:1.5px var(--w);color:transparent}
+.foot p{max-width:30ch;margin:1.5rem 0 2rem;opacity:.75}
+.foot .meta{margin-top:4rem;opacity:.6}
+
+/* ---------- LIGHTBOX ---------- */
+.lb{position:fixed;inset:0;z-index:100;background:var(--kA);display:none;align-items:center;justify-content:center;touch-action:pan-y}
+.lb.open{display:flex}
+.lb figure{max-width:94vw;max-height:84svh;position:relative}
+.lb img{max-height:78svh;max-width:94vw;object-fit:contain;border:5px solid var(--w)}
+.lb figcaption{margin-top:.7rem;font-size:.8rem;display:flex;justify-content:space-between}
+.lb button{position:absolute;font-family:var(--d);font-size:1.6rem;padding:.6rem .9rem;background:var(--w);color:var(--k);z-index:2}
+.lb .x{top:max(.8rem,env(safe-area-inset-top));right:.8rem}
+.lb .p{left:.6rem;top:50%}.lb .n{right:.6rem;top:50%}
+
+/* ---------- FOLDER FOTO ---------- */
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:1.8rem 0 1rem;position:relative;z-index:5}
+.tab{position:relative;text-align:left;border:2px solid var(--w);padding:.7rem .6rem .6rem;display:flex;flex-direction:column;gap:.2rem;background:var(--k);color:var(--w);transition:transform .2s,background .2s,color .2s}
+.tab small{font-size:.6rem;letter-spacing:.1em;opacity:.7}
+.tab b{font-family:var(--d);font-weight:400;font-size:clamp(1.15rem,5.6vw,2rem);text-transform:uppercase;line-height:1}
+.tab i{font-style:normal;font-size:.68rem;opacity:.7}
+.tab[aria-selected=true]{background:var(--w);color:var(--k)}
+.tab:hover{transform:translateY(-3px)}
+.albumline{font-size:.85rem;margin:0 0 2.2rem;display:flex;gap:.7rem;align-items:center;opacity:.8}
+.albumline::before{content:"";width:2.2rem;border-top:1px solid currentColor}
+
+/* ---------- ANIMASI REVEAL ---------- */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+
+/* ---------- KONTROL TEMA ---------- */
+html[data-theme=light]{--k:#fff;--w:#000;--g:#666;--kA:#ffffffee}
+.ctl{position:fixed;right:max(.7rem,env(safe-area-inset-right));bottom:max(.7rem,env(safe-area-inset-bottom));z-index:96;display:flex;gap:.5rem;font-size:.68rem;font-weight:700;letter-spacing:.08em}
+.ctl .grp{display:flex;border:2px solid var(--w);background:var(--k)}
+.ctl button{padding:.55rem .75rem;text-transform:uppercase;transition:background .2s,color .2s}
+.ctl button:hover{background:var(--g);color:var(--k)}
+</style>
+<script>
+(function(){var d=document.documentElement,q=new URLSearchParams(location.search),t=q.get('theme');
+try{t=t||localStorage.getItem('theme')}catch(e){}
+d.dataset.theme=t==='light'?'light':'dark'})();
+</script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="cur" id="customCursor" aria-hidden="true"></div>
+
+<!-- ===== 01 HERO ===== -->
+<header class="hero">
+  <div class="meta"><span id="vol">VOL. 01</span><span>EST. 2026</span></div>
+  <h1 class="name" id="name" aria-label=""></h1>
+  <div class="sticker" aria-hidden="true"><img id="heroImg" alt=""></div>
+  <div class="hero-foot">
+    <p class="tag" id="tagline"></p>
+    <div class="scroll"><span>SCROLL</span><i></i></div>
+  </div>
+</header>
+
+<div class="marq inv" aria-hidden="true"><div class="t" data-marq="MEMORIES • SERTIFIKAT • HANYA • "></div></div>
+
+<!-- ===== 02 TENTANG ===== -->
+<section class="about" id="about">
+  <img class="abg" id="aboutBg" alt="" loading="lazy" decoding="async">
+  <div class="sec-no" aria-hidden="true">01</div>
+  <h2 class="rv">KEPO?<br>soal gue</h2>
+  <p class="rv" id="aboutMain"></p>
+  <p class="rv" id="aboutSub"></p>
+  <div class="meta rv"><span>BACA SEBENTAR AJA, JANJI</span><span>↓</span></div>
+</section>
+
+<div class="marq inv rev" aria-hidden="true"><div class="t" data-marq="SCROLL TERUS • JANGAN BERHENTI • ADA YANG BAGUS DI BAWAH • "></div></div>
+
+<!-- ===== 03 GALERI ===== -->
+<section class="gal" id="gallery">
+  <div class="sec-no" aria-hidden="true">02</div>
+  <h2 class="rv">Memories<br>&amp; Flex</h2>
+  <p class="sub rv">Klik fotonya untuk melihat tampilan penuh. Sentuh/arahkan kursor untuk melihat warna aslinya.</p>
+  <div class="tabs" id="tabs" role="tablist" aria-label="Pilih folder foto"></div>
+  <p class="albumline" id="albumLine"></p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<!-- ===== 04 SERTIFIKAT & PIALA ===== -->
+<section class="certs" id="certs">
+  <div class="sec-no" aria-hidden="true">03</div>
+  <h2 class="rv">HANYA ACHIVEMENT<br>&amp; Sertifikat</h2>
+  <p class="sub rv">Dokumen sertifikasi resmi dan foto piala pencapaian.</p>
+  <div class="cert-box-container" id="certContainer"></div>
+</section>
+
+<!-- ===== 05 FOOTER ===== -->
+<footer class="foot" id="contact">
+  <h2 class="rv">Udah<br>segini aja.<br><em>DADA...</em></h2>
+  <p class="rv" id="closing"></p>
+  <div class="meta"><span id="copy"></span><span>DIBIKIN DENGAN ISENG</span></div>
+</footer>
+
+<!-- KONTROL -->
+<div class="ctl">
+  <div class="grp"><button id="bTheme">Mode terang</button></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto layar penuh">
+  <button class="x" aria-label="Tutup">X</button>
+  <button class="p" aria-label="Sebelumnya">&lt;</button>
+  <button class="n" aria-label="Berikutnya">&gt;</button>
+  <figure><img id="lbImg" alt=""><figcaption><span id="lbCap"></span><span id="lbNo"></span></figcaption></figure>
+</div>
+
+<script>
+/* =========================================================
+   DATA CONFIG & KOLEKSI
+   ========================================================= */
+const CONFIG = {
+  name: "ATHAYA YAZID",
+  tagline: "Kalau dah kepo lanjutin aja.",
+  aboutMain: "Halo, gue <mark>Yazid</mark>. Kamu kepo? KEPOIN AJA ISINYA CUMA ACHIVEMENT.",
+  aboutSub: "Di bawah ini isinya foto-foto dan sertifikat.",
+  closing: "Makasih udah scroll sampai bawah.",
+  heroPhoto: { src: "Judul1.webp" },
+  aboutBg: "about-bg.jpg"
+};
+
+const ALBUMS = [
+  { name: "Merbabu", sub: "Dokumentasi Pendakian Gunung Merbabu", photos: [
+    { src: "Merbabu1.jpg" },
+    { src: "Merbabu2.jpg" },
+    { src: "Merbabu3.jpg" },
+    { src: "Merbabu4.jpg" }
+  ]},
+  { name: "Arjuno", sub: "Dokumentasi Pendakian Gunung Arjuno", photos: [
+    { src: "Arjuno1.jpg" },
+    { src: "Arjuno2.jpeg" },
+    { src: "Arjuno3.jpg" },
+    { src: "Arjuno4.jpg" }
+  ]},
+  { name: "Bebas", sub: "Galeri Foto Bebas & Kegiatan", photos: [
+    { src: "Bebas1.jpg" },
+    { src: "Bebas2.jpg" },
+    { src: "Bebas3.jpg" },
+    { src: "Bebas4.jpg" }
+  ]}
+];
+
+/* KOLEKSI SERTIFIKAT & PIALA: 2 PDF DAN 1 GAMBAR */
+const CERT_COLLECTION = [
+  {
+    type: "pdf",
+    badge: "Sertifikat PDF 01",
+    title: "Sertifikat Webinar Naional - Internasional",
+    desc: "Sertifikat Webinar doang ga lebih.",
+    file: "Sertifikat Webinar.pdf"
+  },
+  {
+    type: "pdf",
+    badge: "Sertifikat PDF 02",
+    title: "Coding Camp 2026 & HKI",
+    desc: "Sertifikat DICODING.",
+    file: "Dicoding_.pdf"
+  },
+  {
+    type: "image",
+    badge: "BUKTI KETERIMA",
+    title: "Beasiswa DBS FOUNDATION 2026",
+    desc: "Bukti keterima DBS FOUNDATION 2026.",
+    imgSrc: "Ketrima.png" 
+  }
+];
+
+/* =========================================================
+   LOGIKA PROGRAM
+   ========================================================= */
+const $ = s => document.querySelector(s);
+
+// Render Info Utama
+document.title = CONFIG.name + " — Vol. 01";
+$('#tagline').textContent = CONFIG.tagline;
+$('#aboutMain').innerHTML = CONFIG.aboutMain;
+$('#aboutSub').textContent = CONFIG.aboutSub;
+$('#closing').textContent = CONFIG.closing;
+$('#heroImg').src = CONFIG.heroPhoto.src;
+$('#aboutBg').src = CONFIG.aboutBg;
+$('#copy').textContent = '© ' + new Date().getFullYear() + ' ' + CONFIG.name;
+
+// Kursor Kustom
+const cur = $('#customCursor');
+let cx = 0, cy = 0, mouseX = 0, mouseY = 0;
+window.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+function animateCursor() {
+  cx += (mouseX - cx) * 0.2;
+  cy += (mouseY - cy) * 0.2;
+  cur.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+document.addEventListener('mouseover', e => {
+  if (e.target.closest('.ph')) {
+    cur.classList.add('big');
+  } else {
+    cur.classList.remove('big');
+  }
+});
+
+// Render Nama Animasi
+const nameEl = $('#name'); let li = 0;
+nameEl.setAttribute('aria-label', CONFIG.name);
+CONFIG.name.split(' ').forEach(w => {
+  const row = document.createElement('span'); row.className = 'word'; row.setAttribute('aria-hidden', 'true');
+  [...w].forEach(c => { const s = document.createElement('span'); s.className = 'ch'; s.style.setProperty('--i', li++); s.textContent = c; row.appendChild(s); });
+  nameEl.appendChild(row);
+});
+
+// Marquee Text
+document.querySelectorAll('[data-marq]').forEach(el => { el.textContent = el.dataset.marq.repeat(8); });
+
+// Render Album Foto
+const grid = $('#grid'), tabs = $('#tabs'), pad = n => String(n).padStart(2, '0');
+let LIST = [], curAlbum = -1;
+
+ALBUMS.forEach((a, k) => {
+  const t = document.createElement('button');
+  t.className = 'tab'; t.setAttribute('role', 'tab');
+  t.innerHTML = '<small>FOLDER ' + pad(k + 1) + '</small><b>' + a.name + '</b><i>' + pad(a.photos.length) + ' foto</i>';
+  t.onclick = () => renderAlbum(k);
+  tabs.appendChild(t);
+});
+
+function renderAlbum(k) {
+  if (k === curAlbum) return;
+  curAlbum = k; const a = ALBUMS[k]; LIST = a.photos;
+  tabs.querySelectorAll('.tab').forEach((t, j) => t.setAttribute('aria-selected', j === k));
+  $('#albumLine').textContent = a.sub;
+  grid.innerHTML = '';
+  a.photos.forEach((p, i) => {
+    const f = document.createElement('figure');
+    f.className = 'ph rv in';
+    f.tabIndex = 0;
+    f.innerHTML = '<div class="box"><img loading="lazy" decoding="async" src="' + p.src + '"></div>';
+    f.addEventListener('click', () => openLB(i));
+    grid.appendChild(f);
+  });
+}
+
+// Render Sertifikat Box Container
+const certContainer = $('#certContainer');
+CERT_COLLECTION.forEach(item => {
+  const card = document.createElement('div');
+  card.className = 'cert-card rv in';
+  
+  let contentHtml = `<span class="badge">${item.badge}</span>`;
+  
+  if(item.type === 'image') {
+    contentHtml += `<div class="cert-img-box"><img src="${item.imgSrc}" alt="${item.title}"></div>`;
+  }
+  
+  contentHtml += `<h3>${item.title}</h3><p>${item.desc}</p>`;
+  
+  if(item.type === 'pdf') {
+    contentHtml += `<a href="${item.file}" target="_blank" rel="noopener" class="btn-pdf">📄 Lihat / Unduh PDF</a>`;
+  }
+  
+  card.innerHTML = contentHtml;
+  certContainer.appendChild(card);
+});
+
+// Lightbox
+const lb = $('#lb'), lbImg = $('#lbImg'); let curIdx = 0;
+function show() {
+  const p = LIST[curIdx];
+  lbImg.src = p.src;
+  $('#lbCap').textContent = ALBUMS[curAlbum].name;
+  $('#lbNo').textContent = String(curIdx + 1).padStart(2, '0') + ' / ' + String(LIST.length).padStart(2, '0');
+}
+function openLB(i) { curIdx = i; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeLB() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+function step(d) { curIdx = (curIdx + d + LIST.length) % LIST.length; show(); }
+lb.querySelector('.x').onclick = closeLB;
+lb.querySelector('.p').onclick = e => { e.stopPropagation(); step(-1); };
+lb.querySelector('.n').onclick = e => { e.stopPropagation(); step(1); };
+lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
+
+// Scroll Animations
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); } }), { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// Mode Terang/Gelap
+const root = document.documentElement, bTheme = $('#bTheme');
+function setTheme(t) {
+  root.dataset.theme = t;
+  try { localStorage.setItem('theme', t); } catch (e) {}
+  bTheme.textContent = t === 'light' ? 'Mode gelap' : 'Mode terang';
+}
+bTheme.onclick = () => setTheme(root.dataset.theme === 'light' ? 'dark' : 'light');
+
+// Inisialisasi
+renderAlbum(0);
+</script>
+</body>
+</html>
